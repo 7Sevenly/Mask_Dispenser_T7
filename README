@@ -1,0 +1,93 @@
+Hi, this is the description file for Team 7's METR4810 Contactless Face Mask Dispenser
+
+The device is modeled after what we've been calling a printer design.
+Essentially treating the face masks like paper, moving them from a stack with conveyors and rollers.
+
+The computations and control are designed to be performed on a Raspberry Pi 3 Model B.
+
+Electrical Components:
+    28BYJ-28 Stepper Motor and ULN2003 Driver x2
+    Micro Servo 9g
+    SEN0208 Water Resistant Ultrasonic Sensor
+    SFH 309 FA-4/5 Photo-transistor
+    LEDs (Red, Orange, Yellow, Green, Infrared)
+
+PIN LAYOUT:
+    Stepper   ->    3, 5, 7, 11, 16, 18, 22, 24
+    Servo     ->    12
+    UL Trig   ->    8
+    UL ECHO   ->    10
+
+    LEDs
+    Fault     ->    31
+    Ready     ->    33
+    User      ->    35
+    Running   ->    37
+    100%      ->    13
+    75%       ->    15
+    50%       ->    19
+    25%       ->    21
+    Empty     ->    23
+
+    IR
+    75%       ->    40
+    50%       ->    38
+    25%       ->    36
+    Empty     ->    32
+    Dispense  ->    26
+
+Setup and Run Instructions:
+    Initially mount the dispenser on the mounting wall using the lower and upper mounting points
+    on the dispenser. This is done by attaching the mounts with nuts and bolts, ensure dispenser is
+    secure and level.
+
+    Load masks neatly into the dispenser from the side door, door can opened using the handle. Place
+    weight plate on the very of the mask stack to ensure the masks are tightly packed. Close the side door,
+    and screw it in to ensure it is sealed and secured.
+
+    Plug official Raspberry Pi Micro Usb power supply to a standard 3 pin power point. Have a wifi network
+    available for the dispenser's Raspberry Pi 3, then connect to the the dispenser using VNC from an
+    "offsite" device. VNC login details seen below:
+    VNC username: Pi
+    VNC password: metr4810
+
+    Once successfully connected to the dispenser's Raspberry Pi 3 through VNC, import Pigpio. In the
+    command terminal type:
+        sudo pigpiod
+    Then press enter, which will import Pigpio for the Raspberry Pi's GPIO pins. This step MUST be performed
+    everytime the dispenser is turned on or the Raspberry Pi is restarted.
+
+    Navigate to the "METR4810_Mask_Disp" folder and open the "main" in the Thonny application in the
+    Raspberry Pi 3. Press the "Run" button in Thonny, which will present the operator with a Graphical
+    User Interface (GUI). The GUI will be the operators main workspace to interact with and monitor the
+    dispenser. The operator must input the number of masks in the dispenser before running it. This is achieved
+    by using the add and remove mask/s buttons under the navigation tab on the top left of the GUI. Then
+    the operator can press the "Start" button on the GUI to initiate the dispenser.
+
+    There is a maintenance file in the "METR4810_Mask_Disp" folder called "main_tenance" which can be run
+    to clear jams without needed to open the whole dispenser case. This code will open the dispensing door
+    and run the dispensing rollers to try and push the jammed mask/s through. It will also keep the door open
+    if the operator is required to pull the jammed mask/s out.
+
+How To Use The Dispenser As A User:
+    When the "READY" LED is turned on, on the front display panel of the dispenser, a user can request a mask.
+    To request a mask from the dispenser, the user is required to hold their hand or an object under the
+    ultrasonic sensor of the dispenser (location marked using the "HOLD HAND BELOW" indication) for 1 or more
+    seconds within 40cm of the sensor. The "USER" LED will indicate if the sensor is detecting the user. Once
+    the dispenser has detected a user is ready to collect a mask, it will turn off the "READY" and " USER" LEDs
+    and turn on the "RUN" LED. This means the dispenser is in the process of dispensing a mask. After a short
+    period of time the dispensing door will open and the rollers will present the user with a mask in a way
+    where they are not required to touch the dispenser in any way.
+
+    The stack display presents the user/s with an indication on the amount of masks remaining in the dispenser.
+    If the dispenser is empty the only LEDs on will be the "PWR" LED, which indicates the dispenser is powered,
+    and the "EMPTY" LED which will be flashing red. If this happens an operator will come to fill the dispenser
+    with more masks.
+
+    The dispenser may experience jams, if this happens the "READY", "USER", and "RUN" LEDs will turn off and
+    the "FAULT" LED will turn on. When in a fault the dispenser will not be usable for a user till the jam is
+    cleared.
+
+    During the event a mask is requested by a user but the user does not collect the mask when ready for
+    collection, the dispenser will automatically dispense the mask after waiting 2.5 seconds.
+

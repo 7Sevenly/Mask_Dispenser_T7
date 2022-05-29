@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>448</width>
+    <height>648</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mask vending machine UI</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QTextBrowser" name="Mask_number_bro">
+          <property name="minimumSize">
+           <size>
+            <width>400</width>
+            <height>210</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>210</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>AcadEref</family>
+            <pointsize>72</pointsize>
+           </font>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'AcadEref'; font-size:72pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0050&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Status Display:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextBrowser" name="Feedback_bro"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Clear_status_btn">
+        <property name="text">
+         <string>Clear Status</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Demo_btn">
+      <property name="text">
+       <string>【Start】</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Stop_Demo_btn">
+      <property name="text">
+       <string>【Stop】</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>448</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>TestMenu</string>
+    </property>
+    <addaction name="actionRefill_mask"/>
+    <addaction name="actionEmpty_mask"/>
+    <addaction name="actionAdd_50mask"/>
+    <addaction name="actionAdd_1mask"/>
+    <addaction name="actionRemove_50mask"/>
+    <addaction name="actionRemove_1mask"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionRefill_mask">
+   <property name="text">
+    <string>Refill_mask</string>
+   </property>
+  </action>
+  <action name="actionEmpty_mask">
+   <property name="text">
+    <string>Empty_mask</string>
+   </property>
+  </action>
+  <action name="actionAdd_50mask">
+   <property name="text">
+    <string>Add_50mask</string>
+   </property>
+  </action>
+  <action name="actionMax_mask">
+   <property name="text">
+    <string>Max_mask</string>
+   </property>
+  </action>
+  <action name="actionAdd_1mask">
+   <property name="text">
+    <string>Add_1mask</string>
+   </property>
+  </action>
+  <action name="actionRemove_1mask">
+   <property name="text">
+    <string>Remove_1mask</string>
+   </property>
+  </action>
+  <action name="actionRemove_50mask">
+   <property name="text">
+    <string>Remove_50mask</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
